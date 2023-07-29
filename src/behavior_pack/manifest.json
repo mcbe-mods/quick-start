@@ -1,0 +1,53 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "pack.description",
+    "name": "pack.name",
+    "uuid": "549ad09b-828f-4b13-99ed-4625c38d5d34",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "JavaScript module code",
+      "language": "javascript",
+      "type": "script",
+      "uuid": "d4ba52ca-dbf0-4460-a446-09496b99a331",
+      "version": [
+        1,
+        0,
+        0
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.4.0-beta"
+    },
+    {
+      "uuid": "245b76a8-6e1b-43c3-88c0-7dc7208bce19",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": [
+      "Lete114"
+    ],
+    "license": "GPL-2.0",
+    "url": "https://github.com/mcbe-mods"
+  }
+}
