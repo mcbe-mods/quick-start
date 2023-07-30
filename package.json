@@ -9,7 +9,7 @@
     "clear": "node scripts/clear.js",
     "copy": "node scripts/copy.js",
     "package": "node scripts/package.js",
-    "prebuild":"node scripts/build.js",
+    "prebuild": "node scripts/build.js",
     "build": "npm run clear && npm run copy && tsc && npm run prebuild && npm run package",
     "lint": "eslint src && prettier --check src",
     "lint:fix": "eslint --fix src && prettier --check --write src"
@@ -23,6 +23,7 @@
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "eslint": "^8.46.0",
+    "fast-glob": "^3.3.1",
     "fs-extra": "^11.1.1",
     "prettier": "^3.0.0",
     "rollup": "^3.27.0",
