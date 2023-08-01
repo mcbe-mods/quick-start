@@ -30,7 +30,7 @@ function handler() {
   spawnSync(NPM, ['run', 'build'])
   if (game === 'game') {
     if (existsSync(distBPPath)) copy(distBPPath, join(development_behavior_packs, '_dev_behavior_pack'))
-    if (existsSync(distRPPath)) copy(distBPPath, join(development_resource_packs, '_dev_resource_pack'))
+    if (existsSync(distRPPath)) copy(distRPPath, join(development_resource_packs, '_dev_resource_pack'))
   }
 }
 
