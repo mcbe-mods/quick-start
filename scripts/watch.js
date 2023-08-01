@@ -4,7 +4,8 @@ import { fileURLToPath } from 'url'
 import { join } from 'path'
 import { spawnSync } from 'child_process'
 import chokidar from 'chokidar'
-import { copySync } from 'fs-extra'
+import fse from 'fs-extra'
+const { copySync } = fse
 
 const { LOCALAPPDATA } = process.env
 const [game] = process.argv.slice(2)
