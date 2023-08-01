@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 import { join } from 'path'
 import { spawnSync } from 'child_process'
 import chokidar from 'chokidar'
-import { copy } from 'fs-extra'
+import { copySync } from 'fs-extra'
 
 const { LOCALAPPDATA } = process.env
 const [game] = process.argv.slice(2)
@@ -32,12 +32,12 @@ function handler() {
     if (existsSync(distBPPath)) {
       const path = join(development_behavior_packs, '_dev_behavior_pack')
       rmSync(path, { force: true, recursive: true })
-      copy(distBPPath, path)
+      copySync(distBPPath, path)
     }
     if (existsSync(distRPPath)) {
       const path = join(development_resource_packs, '_dev_resource_pack')
       rmSync(path, { force: true, recursive: true })
-      copy(distRPPath, path)
+      copySync(distRPPath, path)
     }
   }
 }
