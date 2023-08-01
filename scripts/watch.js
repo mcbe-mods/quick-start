@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { existsSync } from 'fs'
+import { existsSync, rmSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { join } from 'path'
 import { spawnSync } from 'child_process'
@@ -29,8 +29,16 @@ if (existsSync(RPPath)) chokidar.watch(RPPath).on('change', throttle(handler))
 function handler() {
   spawnSync(NPM, ['run', 'build'])
   if (game === 'game') {
-    if (existsSync(distBPPath)) copy(distBPPath, join(development_behavior_packs, '_dev_behavior_pack'))
-    if (existsSync(distRPPath)) copy(distRPPath, join(development_resource_packs, '_dev_resource_pack'))
+    if (existsSync(distBPPath)) {
+      const path = join(development_behavior_packs, '_dev_behavior_pack')
+      rmSync(path, { force: true, recursive: true })
+      copy(distBPPath, path)
+    }
+    if (existsSync(distRPPath)) {
+      const path = join(development_resource_packs, '_dev_resource_pack')
+      rmSync(path, { force: true, recursive: true })
+      copy(distRPPath, path)
+    }
   }
 }
 
