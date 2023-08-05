@@ -7,7 +7,6 @@ git clone https://github.com/mcbe-mods/quick-start.git
 cd quick-start
 
 # Install dependencies
-## If you don't have pnpm, use the `npm install` command to install it.
 pnpm install
 
 # Building
