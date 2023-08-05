@@ -10,7 +10,7 @@
     "copy": "node scripts/copy.js",
     "package": "node scripts/package.js",
     "prebuild": "node scripts/build.js",
-    "build": "npm run clear && npm run copy && tsc && npm run prebuild && npm run package",
+    "build": "pnpm run clear && pnpm run copy && tsc && pnpm run prebuild && pnpm run package",
     "lint": "eslint src && prettier --check src",
     "lint:fix": "eslint --fix src && prettier --check --write src"
   },
