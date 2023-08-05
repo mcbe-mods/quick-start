@@ -6,6 +6,9 @@ A simple template to help you quickly build the mcbe module development environm
 git clone https://github.com/mcbe-mods/quick-start.git
 cd quick-start
 
+# If you don't have pnpm installed...
+corepack enable
+
 # Install dependencies
 pnpm install
 
