@@ -10,8 +10,8 @@
     "clear": "node scripts/clear.js",
     "copy": "node scripts/copy.js",
     "package": "node scripts/package.js",
-    "prebuild": "node scripts/build.js",
-    "build": "pnpm run clear && pnpm run copy && tsc && pnpm run prebuild && pnpm run package",
+    "build": "node scripts/build.js",
+    "builds": "pnpm run clear && pnpm run copy && tsc && pnpm run build && pnpm run package",
     "lint": "eslint src && prettier --check src",
     "lint:fix": "eslint --fix src && prettier --check --write src"
   },
@@ -34,6 +34,6 @@
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "@mcbe-mods/utils": "^0.0.2"
+    "@mcbe-mods/utils": "^0.0.4"
   }
 }
