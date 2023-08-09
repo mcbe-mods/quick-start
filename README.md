@@ -6,16 +6,18 @@ A simple template to help you quickly build the mcbe module development environm
 git clone https://github.com/mcbe-mods/quick-start.git
 cd quick-start
 
+# If you don't have pnpm installed...
+corepack enable
+
 # Install dependencies
-## If you don't have pnpm, use the `npm install` command to install it.
 pnpm install
 
 # Building
-npm run build
+pnpm run build
 
 # dev: Automatically builds when file changes are found
-npm run dev
+pnpm run dev
 
-# dev: Same as `npm run dev`, but with a new feature that automatically writes to the game directory (/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang), namely _dev_behavior_pack and _dev_resource_pack
-npm run dev game
+# dev: Same as `pnpm run dev`, but with a new feature that automatically writes to the game directory (/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang), namely _dev_behavior_pack and _dev_resource_pack
+pnpm run dev game
 ```

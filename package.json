@@ -1,6 +1,7 @@
 {
   "name": "quick-start",
   "private": true,
+  "packageManager": "pnpm@8.6.11",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +11,7 @@
     "copy": "node scripts/copy.js",
     "package": "node scripts/package.js",
     "build": "node scripts/build.js",
-    "builds": "npm run clear && npm run copy && tsc && npm run build && npm run package",
+    "builds": "pnpm run clear && pnpm run copy && tsc && pnpm run build && pnpm run package",
     "lint": "eslint src && prettier --check src",
     "lint:fix": "eslint --fix src && prettier --check --write src"
   },
