@@ -1,23 +1,31 @@
-A simple template to help you quickly build the mcbe module development environment, when you are finished, you can execute npm run build to build the code and automatically packaged, packaged .mcaddon will be saved in the pack directory
+Use it to quickly develop your Minecraft scripts with the Beta API.
 
 ## Usage
 
-```
+Clone this repository
+```bash
 git clone https://github.com/mcbe-mods/quick-start.git
-cd quick-start
+code quick-start # Use VSCode open project
+```
 
-# If you don't have pnpm installed...
-corepack enable
+Install the dependencies, at the end of this process a `public` directory will be created containing `public\behavior_pack` and `public\resource_pack` Please modify the `manifest.json` in it according to your needs.
 
-# Install dependencies
+> If you don't have `pnpm` installed...
+> ```bash
+> corepack enable
+> ```
+
+If your `addon` doesn't need the `resource_pack`, you can delete it.
+```bash
 pnpm install
+```
 
-# Building
-pnpm run build
+Start the project and open the game to create a new world, you will see your `addon` appear in the options bar, check it and enable it. Enter the game and use your bow to aim at ..... FIRE!!! 💥BOOM!!!
+```bash
+pnpm dev
+```
 
-# dev: Automatically builds when file changes are found
-pnpm run dev
-
-# dev: Same as `pnpm run dev`, but with a new feature that automatically writes to the game directory (/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang), namely _dev_behavior_pack and _dev_resource_pack
-pnpm run dev game
+Perform a packaged build and it will generate a `pack` directory where your package (xxxx.mcaddon) will appear
+```bash
+pnpm build
 ```

@@ -1,23 +1,20 @@
-/* eslint-disable camelcase */
-import { existsSync, readFileSync, writeFileSync } from 'fs'
-import { join } from 'path'
-import { fileURLToPath } from 'url'
-import crypto from 'crypto'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { join, parse } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import crypto from 'node:crypto'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-const gitignorePath = join(__dirname, '..', '.gitignore')
-const BPmanifestPath = join(__dirname, '..', 'src/behavior_pack/manifest.json')
-const RPmanifestPath = join(__dirname, '..', 'src/resource_pack/manifest.json')
+const BPmanifestPath = join(__dirname, '..', 'public/behavior_pack/manifest.json')
+const RPmanifestPath = join(__dirname, '..', 'public/resource_pack/manifest.json')
+
 const BP_UUID = crypto.webcrypto.randomUUID()
 const RP_UUID = crypto.webcrypto.randomUUID()
 
-if (existsSync(gitignorePath)) {
-  const content = readFileSync(gitignorePath, 'utf-8').replace('manifest.json', '')
-  writeFileSync(gitignorePath, content)
-}
-
 if (!existsSync(BPmanifestPath)) {
+  mkdirSync(parse(BPmanifestPath).dir, { recursive: true })
+  mkdirSync(parse(RPmanifestPath).dir, { recursive: true })
+
   const BP_manifest_context = {
     format_version: 2,
     header: {
@@ -25,7 +22,7 @@ if (!existsSync(BPmanifestPath)) {
       name: 'pack.name',
       uuid: BP_UUID,
       version: [1, 0, 0],
-      min_engine_version: [1, 20, 0]
+      min_engine_version: [1, 21, 0],
     },
     modules: [
       {
@@ -34,24 +31,24 @@ if (!existsSync(BPmanifestPath)) {
         type: 'script',
         uuid: crypto.webcrypto.randomUUID(),
         version: [1, 0, 0],
-        entry: 'scripts/main.js'
-      }
+        entry: 'scripts/main.js',
+      },
     ],
     dependencies: [
       {
         module_name: '@minecraft/server',
-        version: '1.4.0-beta'
+        version: '1.11.0',
       },
       {
         uuid: RP_UUID,
-        version: [1, 0, 0]
-      }
+        version: [1, 0, 0],
+      },
     ],
     metadata: {
       authors: ['Lete114'],
       license: 'GPL-2.0',
-      url: 'https://github.com/mcbe-mods'
-    }
+      url: 'https://github.com/mcbe-mods',
+    },
   }
 
   const RP_manifest_context = {
@@ -61,23 +58,23 @@ if (!existsSync(BPmanifestPath)) {
       description: 'pack.description',
       uuid: RP_UUID,
       version: [1, 0, 0],
-      min_engine_version: [1, 20, 0]
+      min_engine_version: [1, 20, 0],
     },
     modules: [
       {
         type: 'resources',
         version: [1, 0, 0],
-        uuid: crypto.webcrypto.randomUUID()
-      }
+        uuid: crypto.webcrypto.randomUUID(),
+      },
     ],
     dependencies: [
       {
         uuid: BP_UUID,
-        version: [1, 0, 0]
-      }
-    ]
+        version: [1, 0, 0],
+      },
+    ],
   }
 
-  writeFileSync(BPmanifestPath, JSON.stringify(BP_manifest_context, '', 2))
-  writeFileSync(RPmanifestPath, JSON.stringify(RP_manifest_context, '', 2))
+  writeFileSync(BPmanifestPath, JSON.stringify(BP_manifest_context, null, 2))
+  writeFileSync(RPmanifestPath, JSON.stringify(RP_manifest_context, null, 2))
 }
