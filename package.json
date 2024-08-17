@@ -1,7 +1,8 @@
 {
-  "name": "quick-start-minecraft-bedrock-mod",
+  "name": "quick-start",
   "type": "module",
-  "version": "0.0.5",
+  "version": "0.0.0",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "dev": "tsc && vite build --watch --mode development",
