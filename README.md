@@ -8,12 +8,12 @@ git clone https://github.com/mcbe-mods/quick-start.git
 code quick-start # Use VSCode open project
 ```
 
-Install the dependencies, at the end of this process a `public` directory will be created containing `public\behavior_pack` and `public\resource_pack` Please modify the `manifest.json` in it according to your needs.
-
 > If you don't have `pnpm` installed...
 > ```bash
 > corepack enable
 > ```
+
+Install the dependencies, at the end of the process a `manifest.json` file will be created in the `public\behavior_pack` and `public\resource_pack` directories, please modify the contents according to your needs.
 
 If your `addon` doesn't need the `resource_pack`, you can delete it.
 ```bash
